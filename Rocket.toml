@@ -1,0 +1,18 @@
+[global]
+address = "127.0.0.1"
+port = 8081
+
+[global.limits]
+forms = 131072
+
+[global.databases]
+pgdb1= { url = "postgres://postgres:Dana0Yara@localhost:5432/postgres" }
+
+[production]
+address = "0.0.0.0"
+port = 8000
+template_dir = "prod_templates/"
+assets_dir = "prod_assets/"
+keep_alive = 5
+log = "critical"
+limits = { forms = 32768 }
