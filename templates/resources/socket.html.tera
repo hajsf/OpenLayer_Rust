@@ -1,5 +1,6 @@
 <script>
-    var socket = new WebSocket("ws://127.0.0.1:8080/ws");
+//    var socket = new WebSocket("ws://127.0.0.1:8080/ws");
+    var socket = new WebSocket("ws://localhost:8080/ws");
     console.log(window.location.host)
     var menuList = document.querySelector('#menuList');
 
@@ -81,8 +82,8 @@ clusterLayer.setStyle(function(feature) {
     var size = features.length;
     if (size == 1 && map.getView().getZoom() > 13) {  // size == 1 && resolution < map.getView.getResolutionForZoom(6)
          console.log(feature[0]);
-         if (features[0].get('free_op')) { return freeStyle; }  
-            else { return busyStyle; }    
+         if (features[0].get('free_op')) { return freeStyle; }
+            else { return busyStyle; }
     } else {
           var style = styleCache[size];
           if (!style) {
@@ -126,7 +127,7 @@ var desc = `Person/Vehicle: <h5>` + obj.unique_id + `<h5>
           <input type="time" name="timePicker" value="00:00"><br><br><br>
           </form>
           <button onclick="handleFormSubmit(document.forms['task_form'], '/')">Login</button>`
-           
+
         var iconFeature = new ol.Feature({
             geometry: new ol.geom.Point(ol.proj.transform([obj.lon, obj.lat], 'EPSG:4326', 'EPSG:3857')),
             type: 'Point',
@@ -147,6 +148,6 @@ var desc = `Person/Vehicle: <h5>` + obj.unique_id + `<h5>
             straitSource.removeFeature(markers[device]);
             straitSource.addFeature(iconFeature);
             markers[device]= iconFeature;
-        }   
+        }
     };
 </script>
