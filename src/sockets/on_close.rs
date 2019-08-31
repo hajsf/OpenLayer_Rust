@@ -1,12 +1,10 @@
-/*
-use ws::Handler;
 use crate::models::client::Client;
 
 use crate::CLIENTS;
 use ws::{CloseCode};
 
-impl Handler for Client {
-    fn on_close(&mut self, code: CloseCode, reason: &str) {
+impl Client {
+    pub fn handle_on_close(&mut self, code: CloseCode, reason: &str) {
         println!("before closing: {}", CLIENTS.lock().unwrap().len());
         CLIENTS.lock().unwrap().retain(|client| client.socket != self.out);
         println!("after closing: {}", CLIENTS.lock().unwrap().len());
@@ -18,4 +16,3 @@ impl Handler for Client {
         }
     }
 }
-*/

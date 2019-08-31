@@ -7,8 +7,8 @@
 #[macro_use] extern crate serde_derive;
 use rocket_contrib::{serve::StaticFiles, templates::Template};
 use std::{thread, sync::Mutex};
-
-mod socket; mod routes; mod models; mod databases;
+mod sockets;
+mod socket_handler; mod routes; mod models; mod databases;
 use crate::routes::{index, submit_task};
 use self::models::{client::Client, truck::Truck};
 use crate::databases::main_connection::PgDb1;

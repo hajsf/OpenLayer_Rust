@@ -1,13 +1,11 @@
-/*
-use ws::Handler;
 use crate::models::client::Client;
 
 use crate::CLIENTS;
 use crate::models::{truck::Truck};
 use ws::{Result, Handshake};
 
-impl Handler for Client {
-    fn on_open(&mut self, _: Handshake) -> Result<()> {
+impl Client {
+    pub fn handle_on_open(&mut self, _: Handshake) -> Result<()> {
         let truck = Truck {
             socket: self.out.clone(),
             unique_id: "".to_string()
@@ -19,4 +17,3 @@ impl Handler for Client {
         Ok(())
     }
 }
-*/

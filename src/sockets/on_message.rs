@@ -1,5 +1,3 @@
-/*
-use ws::Handler;
 use crate::models::client::Client;
 
 use crate::CLIENTS;
@@ -7,8 +5,8 @@ use crate::models::{ app_action::AppAction, location::Location,
 sqlmodel::SQLModel, confirmation::Confirmation, app_action::inspect};
 use ws::{Message, Result};
 
-impl Handler for Client {
-    fn on_message(&mut self, msg: Message) -> Result<()> {
+impl Client {
+    pub fn handle_on_message(&mut self, msg: Message) -> Result<()> {
         println!("Server got message '{}'. ", msg);
 
         println!("before msg: {:#?}", CLIENTS.lock().unwrap());
@@ -55,4 +53,3 @@ impl Handler for Client {
         }
     }
 }
-*/

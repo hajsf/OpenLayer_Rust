@@ -1,12 +1,10 @@
-/*
-use ws::Handler;
 use crate::models::client::Client;
 
 use ws::{Request, Response, Result};
 use std::{fs};
 
-impl Handler for Client {
-    fn on_request(&mut self, req: &Request) -> Result<(Response)> {
+impl Client {
+    pub fn handle_on_request(&mut self, req: &Request) -> Result<(Response)> {
         match req.resource() {
             "/ws" => Response::from_request(req),
             "/" => {
@@ -18,4 +16,3 @@ impl Handler for Client {
         }
     }
 }
-*/
